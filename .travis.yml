@@ -8,7 +8,7 @@ notifications:
 
 env:
     matrix:
-        - ANDROID_TARGET=android-26 ANDROID_ABI=ANDROID_ABI=armeabi-v7a ANDROID_TAG=google_apis
+        - ANDROID_TARGET=android-26 ANDROID_ABI=armeabi-v7a ANDROID_TAG=google_apis
 
     global:
         - ADB_INSTALL_TIMEOUT=10    #Time out to 10 mins
