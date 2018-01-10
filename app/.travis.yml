@@ -1,0 +1,7 @@
+language: android
+jdk: oraclejdk8
+sudo: false
+
+notifications:  #Optional
+    email:
+        - ghaly.karim@outlook.com
