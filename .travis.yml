@@ -8,7 +8,7 @@ notifications:
 
 env:
     matrix:
-        - ANDROID_TARGET=android-26 ANDROID_ABI=armeabi-v7a
+        - ANDROID_TARGET=android-26 ANDROID_ABI=google_apis/armeabi-v7a
     global:
         - ADB_INSTALL_TIMEOUT=10    #Time out to 10 mins
 
@@ -34,7 +34,7 @@ android:
         - extra-android-m2repository
 
         #system images
-        - sys-img-armeabi-v7a-android-26
+        - sys-img-armeabi-v7a-addon-google_apis-google-26
 
 before_script:
     - chmod +x gradlew      #Grand permissions
