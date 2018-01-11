@@ -7,8 +7,10 @@ notifications:
         - ghaly.karim@outlook.com
 
 env:
-    matrix:
-        - ANDROID_TARGET=android-26 ANDROID_ABI=armeabi-v7a ANDROID_TAG=google_apis
+    matrix:include:
+               - sudo: false
+                 dist: precise
+                 env: DIST=precise STACK=EC2
     global:
         - ADB_INSTALL_TIMEOUT=10    #Time out to 10 mins
 
@@ -34,7 +36,7 @@ android:
         - extra-android-m2repository
 
         #system images
-        - sys-img-armeabi-v7a-google_apis-26
+        - sys-img-armeabi-v7a-google_apis-21
         - sys-img-armeabi-v7a-google_apis-26
 
 
@@ -42,16 +44,16 @@ android:
 before_script:
     - chmod +x gradlew      #Grand permissions
     - android list targets
-    - echo no | android create avd --force --name test --target $ANDROID_TARGET --abi $ANDROID_ABI    #Create AVD for given api
+    - echo no | android create avd --force -n test -t android-21 --abi armeabi-v7a
     - emulator -avd test -no-skin -no-audio -no-window &    #Start emulator
 
-script:
-    - echo "Travis branch is $TRAVIS_BRANCH"
-    - echo "Travis branch is in pull request $TRAVIS_PULL+REQUEST"
-    - android-wait-for-emulator
-    - adb devices   #Display list of devices
-    - adb shell input keyevent 82 &
-    - ./gradlew connectedCheck -PdisablePreDex --stacktrace
+script: skip
+     - echo "Travis branch is $TRAVIS_BRANCH"
+     - echo "Travis branch is in pull request $TRAVIS_PULL+REQUEST"
+     - android-wait-for-emulator
+     - adb devices   #Display list of devices
+     - adb shell input keyevent 82 &
+     - ./gradlew connectedCheck -PdisablePreDex --stacktrace
 
 before_install:
     - pip install --user codecov    #Install codecov
