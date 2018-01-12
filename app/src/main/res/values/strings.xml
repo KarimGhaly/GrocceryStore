@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Groccery Store</string>
+    <string name="format">JSON</string>
+    <string name="AppKey">64kj2sd7rh9e6bv26eqpa5s6</string>
 </resources>

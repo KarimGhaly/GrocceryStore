@@ -7,7 +7,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.example.mac.groccerystore.R;
-import com.example.mac.groccerystore.data.model.local.Post;
+import com.example.mac.groccerystore.data.model.local.Item;
 
 import java.util.List;
 
@@ -16,10 +16,10 @@ import java.util.List;
  */
 
 public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
-    List<Post> postList;
+    List<Item> itemList;
 
-    public Adapter(List<Post> postList) {
-        this.postList = postList;
+    public Adapter(List<Item> itemList) {
+        this.itemList = itemList;
     }
 
     @Override
@@ -30,14 +30,14 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
 
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
-            Post post = postList.get(position);
-            holder.txtTitle.setText(post.getTitle());
-            holder.txtBody.setText(post.getBody());
+            Item item = itemList.get(position);
+            holder.txtTitle.setText(item.getName());
+            holder.txtBody.setText(item.getShortDescription());
     }
 
     @Override
     public int getItemCount() {
-        return postList.size();
+        return itemList.size();
     }
 
     class ViewHolder extends RecyclerView.ViewHolder{

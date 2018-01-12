@@ -11,7 +11,7 @@ import android.widget.Toast;
 import com.example.mac.groccerystore.App;
 import com.example.mac.groccerystore.R;
 import com.example.mac.groccerystore.data.component.DaggerMainActivityComponent;
-import com.example.mac.groccerystore.data.model.local.Post;
+import com.example.mac.groccerystore.data.model.local.Item;
 import com.example.mac.groccerystore.data.module.MainActivityModule;
 
 import java.util.List;
@@ -38,9 +38,8 @@ public class MainActivity extends AppCompatActivity implements MainActivityContr
     }
 
     @Override
-    public void showPosts(List<Post> postList) {
-        Adapter adapter = new Adapter(postList);
-        Log.d(TAG, "showPosts: "+postList.size());
+    public void showPosts(List<Item> itemList) {
+        Adapter adapter = new Adapter(itemList);
         RVList.setAdapter(adapter);
         RVList.setLayoutManager(new LinearLayoutManager(this));
         RVList.setItemAnimator(new DefaultItemAnimator());

@@ -1,6 +1,6 @@
 package com.example.mac.groccerystore.view.mainactivity;
 
-import com.example.mac.groccerystore.data.model.local.Post;
+import com.example.mac.groccerystore.data.model.local.Item;
 
 import java.util.List;
 
@@ -10,7 +10,7 @@ import java.util.List;
 
 public interface MainActivityContract {
     interface View{
-        void showPosts(List<Post> postList);
+        void showPosts(List<Item> itemList);
         void  showError(String msg);
         void showComplete();
     }

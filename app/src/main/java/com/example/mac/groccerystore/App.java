@@ -20,7 +20,7 @@ public class App extends Application {
         super.onCreate();
         mNetComponent = DaggerNetComponent.builder()
                 .appModule(new AppModule(this))
-                .netModule(new NetModule("http://jsonplaceholder.typicode.com/"))
+                .netModule(new NetModule("http://api.walmartlabs.com/v1/"))
                 .build();
     }
     public NetComponent getNetComponent(){
